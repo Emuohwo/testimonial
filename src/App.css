@@ -1,5 +1,13 @@
 .App {
-  text-align: center;
+  font-family: 'Inter', 'Courier New', Courier, monospace;
+  font-style: normal;
+  text-align: left;
+}
+
+.pageContainer {
+  max-width: 1144px;
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
 .App-logo {

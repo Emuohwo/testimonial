@@ -25,6 +25,11 @@ const  useStyles = makeStyles((theme) => ({
     image: {
         position: 'absolute',
         top: theme.spacing(-8),
+        [theme.breakpoints.down('md')]: {
+            position: 'relative',
+            top: 0,
+            width: '80%',
+        },
     },
     title: {
         fontWeight: 700,

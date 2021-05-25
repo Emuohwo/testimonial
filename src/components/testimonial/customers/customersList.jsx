@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
     image: {
         borderRadius: '50%',
-        width: '200px',
-        height: '200px',
+        maxWidth: '200px',
+        maxHeight: '200px',
     },
     title: {
         fontSize: '24px',

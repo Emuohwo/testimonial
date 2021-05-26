@@ -76,10 +76,10 @@ const VendorsList = () => {
         const { firstname, lastname, kind, story, campus, photo } = datadetail.fields;
         return (
             <>
-            <Grid item md={4}>
+            {/* <Grid item md={4}> */}
                 <Box component="div" className={classes.paper}>
                     <Box component='div'>
-                        <img src={photo.sys.id} alt="" />
+                        {/* <img src={(datadetail.includes.Asset.find(e => e.sys.id === photo.id)).url} alt="" /> */}
                     </Box>
                         <Typography
                             variant="h5"
@@ -99,7 +99,7 @@ const VendorsList = () => {
                         {story}
                     </Typography>
                 </Box>
-            </Grid>
+            {/* </Grid> */}
             </>
         )
     }
@@ -108,7 +108,7 @@ const VendorsList = () => {
         <>
             <section className={classes.section}>
                 <div className="pageContainer">
-                <Grid container spacing={6}>
+                <Grid container spacing={0}>
                     {data.map((datadetail, i) => (
                             <Grid item md={4} sm={6} key={i}>
                                 <CustomerItem datadetail={datadetail} />

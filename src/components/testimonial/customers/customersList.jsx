@@ -78,7 +78,7 @@ const CustomersList = () => {
         const { firstname, lastname, kind, story, campus, photo } = datadetail.fields;
         return (
             <>
-            <Grid item md={4}>
+            {/* <Grid item md={4}> */}
                 <Box component="div" className={classes.paper}>
                     <Box component='div'>
                         <img src={photo.url} alt="" />
@@ -101,7 +101,7 @@ const CustomersList = () => {
                         {story}
                     </Typography>
                 </Box>
-            </Grid>
+            {/* </Grid> */}
             </>
         )
     }

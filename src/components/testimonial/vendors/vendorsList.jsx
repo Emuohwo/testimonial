@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 const VendorsList = () => {
     const classes = useStyles();
     const [data, setData] = useState([]);
+    const [assets, setAssets] = useState([]);
 
     useEffect(() => {
         fetch('https://cdn.contentful.com/spaces/qqm8l9caoufc/entries?access_token=ZGFnwdntAt4RP3-0tPLnJSoC_yyKbW8WL2nfTAUQ-No')
@@ -69,6 +70,7 @@ const VendorsList = () => {
         .then(res => {
             console.log(res)
             setData(res.items)
+            setAssets(res.includes.Asset || [])
         });
     }, [])
 
@@ -79,7 +81,7 @@ const VendorsList = () => {
             {/* <Grid item md={4}> */}
                 <Box component="div" className={classes.paper}>
                     <Box component='div'>
-                        {/* <img src={(datadetail.includes.Asset.find(e => e.sys.id === photo.id)).url} alt="" /> */}
+                        <img src={assets.length ? (assets.find(e => e.sys.id === photo.sys.id)).fields.file.url : ''} alt="" />
                     </Box>
                         <Typography
                             variant="h5"

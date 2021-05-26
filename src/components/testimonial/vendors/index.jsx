@@ -1,9 +1,10 @@
 import React from 'react';
+import VendorsList from './vendorsList';
 
 const Vendors = () => {
     return (
         <>
-            <h1>Vendors Section</h1>
+            <VendorsList />
         </>
     );
 }

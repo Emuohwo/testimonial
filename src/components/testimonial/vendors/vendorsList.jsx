@@ -4,8 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import { customerData } from './cdata';
-
 const contentful = require("contentful");
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
     section: {
         textAlign: 'left',
-        paddingTop: theme.spacing(4),
+        padding: theme.spacing(6, 0),
     },
     paper: {
         padding: theme.spacing(2, 5),
@@ -61,22 +59,27 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const CustomersList = () => {
+const VendorsList = () => {
     const classes = useStyles();
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        function customData() {
-            return setData(customerData)
-        }
-        customData();
+        const client = contentful.createClient({
+            space: "qqm8l9caoufc",
+            accessToken: "ZGFnwdntAt4RP3-0tPLnJSoC_yyKbW8WL2nfTAUQ-No",
+            // host: "ZydfmeKyqSXTj9A8HdpPT9FTYMFHpgaGnDxd95itzNQ"
+        })
+        client.getEntries({ content_type: 'Author' }).then((response) => {
+            setData(response.items)
+            console.log(data)
+        })
     }, [])
 
     const CustomerItem = ({ datadetail }) => {
-        const { firstname, lastname, kind, story, campus, photo } = datadetail
+        const { firstname, lastname, kind, story, campus, photo } = datadetail;
         return (
             <>
-            <div>
+            <Grid item md={4}>
                 <Box component="div" className={classes.paper}>
                     <Box component='div'>
                         <img src="./images/customers/customer1.jpg" alt="" />
@@ -99,7 +102,7 @@ const CustomersList = () => {
                         {story}
                     </Typography>
                 </Box>
-            </div>
+            </Grid>
             </>
         )
     }
@@ -109,13 +112,11 @@ const CustomersList = () => {
             <section className={classes.section}>
                 <div className="pageContainer">
                     <Grid container spacing={6}>
-                    {customerData.map((datadetail, i) => (
-                            <Grid item md={4} key={i}>
+                        {data.map((datadetail, i) => (
+                            <div key={i}>
                                 <CustomerItem datadetail={datadetail} />
-                            </Grid>
+                            </div>
                         ))}
-                    </Grid>
-                    <Grid container spacing={6}>
                         {/* <Grid item md={4}>
                             <Box component="div" className={classes.paper}>
                                 <Box component='div'>
@@ -146,35 +147,6 @@ const CustomersList = () => {
                             </Box>
                         </Grid> */}
                         {/* Deletion starts here */}
-                        {/* <Grid item md={4}>
-                            <Box component="div" className={classes.paper}>
-                                <Box component='div'>
-                                    <img src="./images/customers/customer1.jpg" alt="" />
-                                </Box>
-                                    <Typography
-                                        variant="h5"
-                                        component="h4"
-                                        className={classes.title}
-                                    >
-                                        Joseph Ike
-                                    </Typography>
-                                <Box className={classes.twoCols}>
-                                    <span className={classes.location}>in ikeja</span>
-                                    <span className={classes.customer}>Customer</span>
-                                </Box>
-                                <Typography
-                                    component="p"
-                                    className={classes.pTag}
-                                >
-                                    Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                                    Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
-                                    tempor enim. Elit aute irure tempor cupidatat incididunt sint
-                                    deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
-                                    nostrud irure ex duis ea quis id quis ad et. Sunt qui esse
-                                    pariatur duis deserunt mollit dolore cillum minim tempor enim.
-                                </Typography>
-                            </Box>
-                        </Grid>
                         <Grid item md={4}>
                             <Box component="div" className={classes.paper}>
                                 <Box component='div'>
@@ -232,7 +204,36 @@ const CustomersList = () => {
                                     pariatur duis deserunt mollit dolore cillum minim tempor enim.
                                 </Typography>
                             </Box>
-                        </Grid> */}
+                        </Grid>
+                        <Grid item md={4}>
+                            <Box component="div" className={classes.paper}>
+                                <Box component='div'>
+                                    <img src="./images/customers/customer1.jpg" alt="" />
+                                </Box>
+                                    <Typography
+                                        variant="h5"
+                                        component="h4"
+                                        className={classes.title}
+                                    >
+                                        Joseph Ike
+                                    </Typography>
+                                <Box className={classes.twoCols}>
+                                    <span className={classes.location}>in ikeja</span>
+                                    <span className={classes.customer}>Customer</span>
+                                </Box>
+                                <Typography
+                                    component="p"
+                                    className={classes.pTag}
+                                >
+                                    Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+                                    Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+                                    tempor enim. Elit aute irure tempor cupidatat incididunt sint
+                                    deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
+                                    nostrud irure ex duis ea quis id quis ad et. Sunt qui esse
+                                    pariatur duis deserunt mollit dolore cillum minim tempor enim.
+                                </Typography>
+                            </Box>
+                        </Grid>
                         {/* Deletion ends here */}
                     </Grid>
                 </div>
@@ -241,4 +242,4 @@ const CustomersList = () => {
     );
 }
 
-export default CustomersList;
+export default VendorsList;

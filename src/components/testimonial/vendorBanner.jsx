@@ -10,10 +10,14 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     background: {
-        background: '#000',
-        color: '#ffffff',
+        background: '#FFF8F5',
+        // color: '#ffffff',
         textAlign: 'left',
         // marginBottom: '-8em'
+    },
+    imgBox: {
+        textAlign: 'right',
+        marginLeft: theme.spacing(4),
     },
     customerImg: {
         width: '80%',
@@ -39,9 +43,10 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '16px',
         letterSpacing: '0.02em',
         textAlign: 'left',
-        border: '1px solid rgba(255, 255, 255, 0.4)',
+        border: '1px solid #FF5C00 ',
         paddding: '0.3em 2em',
-        margin: '1em 0'
+        margin: '1em 0',
+        color: '#FF5C00',
 
     },
     pTag: {
@@ -74,22 +79,13 @@ const CustomerBanner = () => {
             <div className={classes.background}>
                 <div className="pageContainer">
                     <Grid container spacing={1}>
-                        <Grid item md={8}>
-                            <img
-                                src="./images/customer.png" 
-                                alt="Tolu & Joy’s Experience"
-                                srcset=""
-                                className={classes.customerImg}
-                            />
-                        </Grid>
-
                         <Grid item md={4}>
                             <Typography
                               variant="h5"
                               component="h4"
                               className={classes.mainHeading}
                             >
-                                Tolu & Joy’s Experience
+                                Josiah’s Experience
                             </Typography>
                             <Typography
                               variant="h5"
@@ -117,10 +113,20 @@ const CustomerBanner = () => {
                                     <img src="" alt="" srcset="" />
                                 </span>
                             </Typography> */}
-                            <Box component="div">
+                            <Box component="div" className={classes.imgBox}>
                                 <CustomerModal />
                             </Box>
                         </Grid>
+
+                        <Grid item md={8}>
+                            <img
+                                src="./images/vendor.png" 
+                                alt="Tolu & Joy’s Experience"
+                                srcset=""
+                                className={classes.customerImg}
+                            />
+                        </Grid>
+
                     </Grid>
                 </div>
             </div>

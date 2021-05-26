@@ -65,21 +65,23 @@ const CustomersList = () => {
     const classes = useStyles();
     const [data, setData] = useState([]);
 
-    // useEffect(() => {
-    //     function customData() {
-    //         return setData(customerData)
-    //     }
-    //     customData();
-    // }, [])
+    useEffect(() => {
+        fetch('https://cdn.contentful.com/spaces/qqm8l9caoufc/entries?access_token=ZGFnwdntAt4RP3-0tPLnJSoC_yyKbW8WL2nfTAUQ-No')
+        .then(response => response.json())
+        .then(res => {
+            console.log(res.items)
+            setData(res.items)
+        });
+    }, [])
 
     const CustomerItem = ({ datadetail }) => {
-        const { firstname, lastname, kind, story, campus, photo } = datadetail
+        const { firstname, lastname, kind, story, campus, photo } = datadetail.fields;
         return (
             <>
-            <div>
+            <Grid item md={4}>
                 <Box component="div" className={classes.paper}>
                     <Box component='div'>
-                        <img src={photo} alt={firstname} />
+                        <img src={photo.url} alt="" />
                     </Box>
                         <Typography
                             variant="h5"
@@ -99,24 +101,25 @@ const CustomersList = () => {
                         {story}
                     </Typography>
                 </Box>
-            </div>
+            </Grid>
             </>
         )
     }
 
+
     return (
         <>
-            <section className={classes.section}>
-                <div className="pageContainer">
-                    <Grid container spacing={6}>
-                    {customerData.map((datadetail, i) => (
-                            <Grid item md={4} sm={6} key={i}>
-                                <CustomerItem datadetail={datadetail} />
-                            </Grid>
-                        ))}
-                    </Grid>
-                </div>
-            </section>
+        <section className={classes.section}>
+            <div className="pageContainer">
+            <Grid container spacing={6}>
+                {data.map((datadetail, i) => (
+                        <Grid item md={4} sm={6} key={i}>
+                            <CustomerItem datadetail={datadetail} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </div>
+        </section>
         </>
     );
 }

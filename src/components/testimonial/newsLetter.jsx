@@ -14,7 +14,8 @@ const  useStyles = makeStyles((theme) => ({
         background: '#25201D',
         color: '#ffffff',
         paddingTop: theme.spacing(2),
-        height: '370px',
+        paddingBottom: theme.spacing(3),
+        minHeight: '400px',
         fontFamily: `'Roboto', sans-serif `,
     },
     imageBox: {

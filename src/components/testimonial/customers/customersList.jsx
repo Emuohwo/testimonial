@@ -65,12 +65,12 @@ const CustomersList = () => {
     const classes = useStyles();
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-        function customData() {
-            return setData(customerData)
-        }
-        customData();
-    }, [])
+    // useEffect(() => {
+    //     function customData() {
+    //         return setData(customerData)
+    //     }
+    //     customData();
+    // }, [])
 
     const CustomerItem = ({ datadetail }) => {
         const { firstname, lastname, kind, story, campus, photo } = datadetail
@@ -79,7 +79,7 @@ const CustomersList = () => {
             <div>
                 <Box component="div" className={classes.paper}>
                     <Box component='div'>
-                        <img src="./images/customers/customer1.jpg" alt="" />
+                        <img src={photo} alt={firstname} />
                     </Box>
                         <Typography
                             variant="h5"
@@ -110,130 +110,10 @@ const CustomersList = () => {
                 <div className="pageContainer">
                     <Grid container spacing={6}>
                     {customerData.map((datadetail, i) => (
-                            <Grid item md={4} key={i}>
+                            <Grid item md={4} sm={6} key={i}>
                                 <CustomerItem datadetail={datadetail} />
                             </Grid>
                         ))}
-                    </Grid>
-                    <Grid container spacing={6}>
-                        {/* <Grid item md={4}>
-                            <Box component="div" className={classes.paper}>
-                                <Box component='div'>
-                                    <img src="./images/customers/customer1.jpg" alt="" />
-                                </Box>
-                                    <Typography
-                                        variant="h5"
-                                        component="h4"
-                                        className={classes.title}
-                                    >
-                                        Joseph Ike
-                                    </Typography>
-                                <Box className={classes.twoCols}>
-                                    <span className={classes.location}>in ikeja</span>
-                                    <span className={classes.customer}>Customer</span>
-                                </Box>
-                                <Typography
-                                component="p"
-                                className={classes.pTag}
-                                >
-                                    Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                                    Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
-                                    tempor enim. Elit aute irure tempor cupidatat incididunt sint
-                                    deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
-                                    nostrud irure ex duis ea quis id quis ad et. Sunt qui esse
-                                    pariatur duis deserunt mollit dolore cillum minim tempor enim.
-                                </Typography>
-                            </Box>
-                        </Grid> */}
-                        {/* Deletion starts here */}
-                        {/* <Grid item md={4}>
-                            <Box component="div" className={classes.paper}>
-                                <Box component='div'>
-                                    <img src="./images/customers/customer1.jpg" alt="" />
-                                </Box>
-                                    <Typography
-                                        variant="h5"
-                                        component="h4"
-                                        className={classes.title}
-                                    >
-                                        Joseph Ike
-                                    </Typography>
-                                <Box className={classes.twoCols}>
-                                    <span className={classes.location}>in ikeja</span>
-                                    <span className={classes.customer}>Customer</span>
-                                </Box>
-                                <Typography
-                                    component="p"
-                                    className={classes.pTag}
-                                >
-                                    Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                                    Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
-                                    tempor enim. Elit aute irure tempor cupidatat incididunt sint
-                                    deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
-                                    nostrud irure ex duis ea quis id quis ad et. Sunt qui esse
-                                    pariatur duis deserunt mollit dolore cillum minim tempor enim.
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item md={4}>
-                            <Box component="div" className={classes.paper}>
-                                <Box component='div'>
-                                    <img src="./images/customers/customer1.jpg" alt="" />
-                                </Box>
-                                    <Typography
-                                        variant="h5"
-                                        component="h4"
-                                        className={classes.title}
-                                    >
-                                        Joseph Ike
-                                    </Typography>
-                                <Box className={classes.twoCols}>
-                                    <span className={classes.location}>in ikeja</span>
-                                    <span className={classes.customer}>Customer</span>
-                                </Box>
-                                <Typography
-                                    component="p"
-                                    className={classes.pTag}
-                                >
-                                    Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                                    Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
-                                    tempor enim. Elit aute irure tempor cupidatat incididunt sint
-                                    deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
-                                    nostrud irure ex duis ea quis id quis ad et. Sunt qui esse
-                                    pariatur duis deserunt mollit dolore cillum minim tempor enim.
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item md={4}>
-                            <Box component="div" className={classes.paper}>
-                                <Box component='div'>
-                                    <img src="./images/customers/customer1.jpg" alt="" />
-                                </Box>
-                                    <Typography
-                                        variant="h5"
-                                        component="h4"
-                                        className={classes.title}
-                                    >
-                                        Joseph Ike
-                                    </Typography>
-                                <Box className={classes.twoCols}>
-                                    <span className={classes.location}>in ikeja</span>
-                                    <span className={classes.customer}>Customer</span>
-                                </Box>
-                                <Typography
-                                    component="p"
-                                    className={classes.pTag}
-                                >
-                                    Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                                    Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
-                                    tempor enim. Elit aute irure tempor cupidatat incididunt sint
-                                    deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
-                                    nostrud irure ex duis ea quis id quis ad et. Sunt qui esse
-                                    pariatur duis deserunt mollit dolore cillum minim tempor enim.
-                                </Typography>
-                            </Box>
-                        </Grid> */}
-                        {/* Deletion ends here */}
                     </Grid>
                 </div>
             </section>

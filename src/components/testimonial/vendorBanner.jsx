@@ -3,7 +3,7 @@ import { makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Box, Typography } from "@material-ui/core";
 
-import CustomerModal from './customers/customerModal';
+import VendorModal from './vendors/vendorModal';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '16px',
         letterSpacing: '0.02em',
         textAlign: 'left',
-        border: '1px solid #FF5C00 ',
+        border: '1px solid #FF5C00',
         paddding: '0.3em 2em',
         margin: '1em 0',
         color: '#FF5C00',
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '32px',
         letterSpacing: '0.2em',
         textTransform: 'uppercase',
-        color: '#FFFFFF',
+        color: '#FF5C00',
         marginTop: '1em',
     }
 }));
@@ -92,7 +92,7 @@ const CustomerBanner = () => {
                               component="span"
                               className={classes.badge}
                             >
-                                Customer
+                                Vendor
                             </Typography>
                             
                             <Typography
@@ -114,7 +114,7 @@ const CustomerBanner = () => {
                                 </span>
                             </Typography> */}
                             <Box component="div" className={classes.imgBox}>
-                                <CustomerModal />
+                                <VendorModal />
                             </Box>
                         </Grid>
 

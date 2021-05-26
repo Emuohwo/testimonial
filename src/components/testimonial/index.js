@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './headers'
+// import Header from './headers'
 import TestimonialHero from './testimonial_hero';
 import CustomerBanner from './customerBanner';
 import VendorBanner from './vendorBanner';
@@ -12,7 +12,7 @@ import VendorsTestimonials from './vendors';
 const Testimonial = () => {
     return (
         <>
-        <Header />
+        {/* <Header /> */}
         <TestimonialHero />
         <CustomerBanner />
         <CustomersTestimonials />

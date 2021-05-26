@@ -71,9 +71,9 @@ export default function CustomerModal() {
   };
   
 
-  const handleChangeEvent = (event) => {
-    setSelectedValue(event.target.value);
-  };
+  // const handleChangeEvent = (event) => {
+  //   setSelectedValue(event.target.value);
+  // };
 //   form starts
 
     const history = useHistory();

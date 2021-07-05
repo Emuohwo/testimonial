@@ -3,7 +3,7 @@ import { makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Box, Typography } from "@material-ui/core";
 
-import VendorModal from './vendors/vendorModal';
+// import VendorModal from './vendors/vendorModal';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -114,7 +114,7 @@ const CustomerBanner = () => {
                                 </span>
                             </Typography> */}
                             <Box component="div" className={classes.imgBox}>
-                                <VendorModal />
+                                {/* <VendorModal /> */}
                             </Box>
                         </Grid>
 
